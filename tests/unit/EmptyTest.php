@@ -12,9 +12,6 @@ namespace PhpZendo\Tests\Unit;
 use PhpZendo\Comparison\Compare;
 use PHPUnit\Framework\TestCase;
 
-/**
- * @covers Respect\Validation\Factory
- */
 class EmptyTest extends TestCase
 {
     public function testEmptyString()
