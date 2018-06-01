@@ -1,0 +1,33 @@
+{
+    "name": "phpzendo/php-comparison",
+    "description": "The most awesome comparison engine created for php",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "huliuqing",
+            "email": "huliuqing1989@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {
+        "php": ">=5.3",
+        "sebastian/comparator": "^3.0@dev"
+    },
+    "require-dev": {
+        "symfony/var-dumper": "3.4.x-dev"
+    },
+    "autoload": {
+        "psr-4": {
+            "PhpZendo\\Comparison\\": "src/Comparison/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Tests\\": "tests/"
+        }
+    },
+    "scripts": {
+        "test": "./vendor/bin/phpunit"
+    }
+}
