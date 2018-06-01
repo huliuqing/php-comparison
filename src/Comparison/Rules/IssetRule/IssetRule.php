@@ -4,10 +4,8 @@ namespace PhpZendo\Comparison\Rules\IssetRule;
 
 abstract class IssetRule 
 {
-    
-
     /**
-     * handle check $inputs is empty or not
+     * handle check $expected is set or not
      * 
      * @description comparison table 
      * @see http://php.net/manual/zh/types.comparisons.php
@@ -30,10 +28,10 @@ abstract class IssetRule
      * $x = "true";	                            string	FALSE	FALSE	TRUE	TRUE
      * $x = "false";	                        string	FALSE	FALSE	TRUE	TRUE
      * 
-     * @param mixed $inputs
+     * @param mixed $expected
      * @return boolean
      */
-    public abstract function handle($inputs);
+    public abstract function handle($expected);
 
     protected function getInput($inputs)
     {
@@ -43,7 +41,8 @@ abstract class IssetRule
     public function __invoke()
     {
         $inputs = func_get_args();
+        $expected = $this->getInput($inputs);
 
-        return $this->handle($inputs);
+        return $this->handle($expected);
     }
 }

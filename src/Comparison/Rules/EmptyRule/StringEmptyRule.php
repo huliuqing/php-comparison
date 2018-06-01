@@ -4,37 +4,46 @@ namespace PhpZendo\Comparison\Rules\EmptyRule;
 
 class StringEmptyRule extends EmptyRule
 {
-    public function handle($inputs)
+    /**
+     * check $expected is empty or not.
+     * 
+     * @param mixed $expected
+     * @return boolean
+     */
+    public function handle($expected)
     {
-        $input = $this->getInput($inputs);
-
-        $type = gettype($input);
-        if (is_numeric($input)) {
-            $type = 'integer';
+        $type = gettype($expected);
+        if (is_numeric($expected)) {
+            $type = 'numeric';
         }
 
         $handle = $type . 'Handle';
-        return $this->{$handle}($input);
+        return $this->{$handle}($expected);
     }
 
-    private function stringHandle($input)
+    /**
+     * check the given string of $expected is empty or not.
+     * 
+     * @param mixed $expected
+     * @return boolean
+     */
+    private function stringHandle($expected)
     {
-        // when check a string and only '' value will return true;
-        $input = trim($input);
+        // when check a string and only '' value given will return true;
+        $expected = trim($expected);
 
-        return $input === '';
+        return $expected === '';
     }   
 
     /**
-     * integerHandle handle a numeric value
+     * check the given numeric of $expected is empty or not.
      *
-     * @param mixed $input
+     * @param mixed $expected
      * @return boolean
      */
-    private function integerHandle($input)
+    private function numericHandle($expected)
     {
-        // all numeric value 0, 1, 42, -1, '0', '1', '-1' etc, 
-        // when check empty will return false
+        // all numeric value like 0, 1, 42, -1, '0', '1', '-1' etc will return false.
         return false;
     }
 }

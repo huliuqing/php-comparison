@@ -4,11 +4,15 @@ namespace PhpZendo\Comparison\Rules\IssetRule;
 
 class BooleanIssetRule extends IssetRule
 {
-    public function handle($inputs)
+    /**
+     * handle check $expected is set or not
+     * 
+     * @param mixed $expected
+     * @return boolean
+     */
+    public function handle($expected)
     {
-        // when give boolean type to check isset, should return true.
-        $input = $this->getInput($inputs);
-        
+        // when give boolean type to check isset, should return true.        
         return true;
     }
 }

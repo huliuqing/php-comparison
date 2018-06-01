@@ -4,12 +4,16 @@ namespace PhpZendo\Comparison\Rules\IssetRule;
 
 class NullIssetRule extends IssetRule
 {
-    public function handle($inputs)
+    /**
+     * handle check $expected is set or not
+     * 
+     * @param mixed $expected
+     * @return boolean
+     */
+    public function handle($expected)
     {
-        $input = $this->getInput($inputs);
-
-        // undefined, null, have default null value etc null value context
-        // when check isset will return false
+        // undefined, null, have default null value etc null value context,
+        // when check isset will return false.
         return false;
     }  
 }

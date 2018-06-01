@@ -4,12 +4,16 @@ namespace PhpZendo\Comparison\Rules\IsNullRule;
 
 class IntegerIsNullRule extends IsNullRule
 {
-    public function handle($inputs)
+    /**
+     * handle check $expected is null or not.
+     * 
+     * @param mixed $expected
+     * @return boolean
+     */
+    public function handle($expected)
     {
         // all numeric value 0, 1, 42, -1, '0', '1', '-1' etc, 
-        // when check null will return false
-        $input = $this->getInput($inputs);
-        
+        // when check null will return false        
         return false;
     }
 }

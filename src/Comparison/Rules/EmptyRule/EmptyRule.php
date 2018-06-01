@@ -4,10 +4,8 @@ namespace PhpZendo\Comparison\Rules\EmptyRule;
 
 abstract class EmptyRule 
 {
-    
-
     /**
-     * handle check $inputs is empty or not
+     * check $expected is empty or not.
      * 
      * @description comparison table 
      * @see http://php.net/manual/zh/types.comparisons.php
@@ -30,20 +28,32 @@ abstract class EmptyRule
      * $x = "true";	                            string	FALSE	FALSE	TRUE	TRUE
      * $x = "false";	                        string	FALSE	FALSE	TRUE	TRUE
      * 
-     * @param mixed $inputs
+     * @param mixed $expected
      * @return boolean
      */
-    public abstract function handle($inputs);
+    public abstract function handle($expected);
 
+    /**
+     * get the actual value to check empty
+     *
+     * @param mixed $inputs
+     * @return mixed
+     */
     protected function getInput($inputs)
     {
         return $inputs[0];
     }
 
+    /**
+     * call object like a function
+     *
+     * @return boolean
+     */
     public function __invoke()
     {
         $inputs = func_get_args();
+        $expected = $this->getInput($inputs);
 
-        return $this->handle($inputs);
+        return $this->handle($expected);
     }
 }

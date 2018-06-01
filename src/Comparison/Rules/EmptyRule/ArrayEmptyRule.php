@@ -4,11 +4,15 @@ namespace PhpZendo\Comparison\Rules\EmptyRule;
 
 class ArrayEmptyRule extends EmptyRule
 {
-    public function handle($inputs)
+    /**
+     * check $expected is empty or not.
+     * 
+     * @param mixed $expected
+     * @return boolean
+     */
+    public function handle($expected)
     {
-        $input = $this->getInput($inputs);
-        
-        // when give variable $input is array type only [] while return true.
-        return empty($input);
+        // when give variable $expected is array type, only [] will return true.
+        return empty($expected);
     }
 }

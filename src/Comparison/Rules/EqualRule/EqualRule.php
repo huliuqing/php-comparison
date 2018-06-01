@@ -14,15 +14,18 @@ abstract class EqualRule
     }
 
     /**
-     * handle function
+     * handle compare two values are equal.
      *
-     * @param [type] $inputs
-     * @return void
+     * @param mixed $expected     First value to compare
+     * @param mixed $actual       Second value to compare
+     * @param bool  $ignoreCase   Case is ignored when set to true
+     *
+     * @return boolean
      */
-    public function handle($expected, $actual)
+    public function handle($expected, $actual,bool $ignoreCase = false)
     {
         try {
-            $this->comparator->getComparatorFor($expected, $actual)->assertEquals($expected, $actual);
+            $this->comparator->getComparatorFor($expected, $actual)->assertEquals($expected, $actual, $delta = 0.0, $canonicalize = false, $ignoreCase);
 
             return true;
         } catch (\Exception $e) {
@@ -30,11 +33,16 @@ abstract class EqualRule
             return false;
         }
     }
-
+    
+    /**
+     * call object like a function
+     *
+     * @return boolean
+     */
     public function __invoke()
     {
-        $inputs = func_get_args();
+        list($expected, $actual, $ignoreCase) = func_get_args();
 
-        return $this->handle($inputs[0], $inputs[1]);
+        return $this->handle($expected, $actual, $ignoreCase ?: false);
     }
 }

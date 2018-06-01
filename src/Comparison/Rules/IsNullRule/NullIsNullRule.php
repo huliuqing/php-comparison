@@ -4,10 +4,14 @@ namespace PhpZendo\Comparison\Rules\IsNullRule;
 
 class NullIsNullRule extends IsNullRule
 {
-    public function handle($inputs)
+    /**
+     * handle check $expected is null or not.
+     * 
+     * @param mixed $expected
+     * @return boolean
+     */    
+    public function handle($expected)
     {
-        $input = $this->getInput($inputs);
-
         // undefined, null, have default null value etc null value context
         // when check null will return true
         return true;

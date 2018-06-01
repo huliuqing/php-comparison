@@ -4,11 +4,15 @@ namespace PhpZendo\Comparison\Rules\IssetRule;
 
 class ArrayIssetRule extends IssetRule
 {
-    public function handle($inputs)
+    /**
+     * handle check $expected is set or not
+     * 
+     * @param mixed $expected
+     * @return boolean
+     */
+    public function handle($expected)
     {
-        // when give an array to check isset, should always return true;
-        $input = $this->getInput($inputs);
-        
+        // when give an array to check isset, should always return true.        
         return true;
     }
 }
