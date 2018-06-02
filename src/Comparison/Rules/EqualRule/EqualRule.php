@@ -14,7 +14,7 @@ abstract class EqualRule
     }
 
     /**
-     * handle compare two values are equal.
+     * compare two values are equal.
      *
      * @param mixed $expected     First value to compare
      * @param mixed $actual       Second value to compare
@@ -22,7 +22,7 @@ abstract class EqualRule
      *
      * @return boolean
      */
-    public function handle($expected, $actual,bool $ignoreCase = false)
+    public function handle($expected, $actual, $ignoreCase = false)
     {
         try {
             $this->comparator->getComparatorFor($expected, $actual)->assertEquals($expected, $actual, $delta = 0.0, $canonicalize = false, $ignoreCase);
@@ -42,7 +42,6 @@ abstract class EqualRule
     public function __invoke()
     {
         list($expected, $actual, $ignoreCase) = func_get_args();
-
-        return $this->handle($expected, $actual, $ignoreCase ?: false);
+        return $this->handle($expected, $actual, $ignoreCase);
     }
 }
