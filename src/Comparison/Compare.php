@@ -5,11 +5,7 @@ namespace PhpZendo\Comparison;
 use PhpZendo\Comparison\RuleLocator as Locator;
 
 class Compare
-{    
-    private $namespace = '\\Comparison';
-    
-    private $prefix;
-
+{
     private $ruleLocator;
 
     private static $instance;
@@ -28,57 +24,142 @@ class Compare
         $this->ruleLocator = new Locator();
     }
 
-    public function empty($input)
+    /**
+     * check $expected is empty or not.
+     * 
+     * @param mixed $expected
+     * @return boolean
+     */
+    public function empty($expected)
     {
-        $handle = $this->ruleLocator->find($input);
+        $handle = $this->ruleLocator->find($expected);
 
-        return $handle($input);
+        return $handle($expected);
     }
 
-    public function isNotEmpty($input)
+    /**
+     * check $expected is not empty.
+     * 
+     * @param mixed $expected
+     * @return boolean
+     */
+    public function isNotEmpty($expected)
     {
-        return !$this->empty($input);
+        return !$this->empty($expected);
     }
 
-    public function isNull($input)
+    /**
+     * check $expected is null or not.
+     * 
+     * @param mixed $expected
+     * @return boolean
+     */
+    public function isNull($expected)
     {
-        $handle = $this->ruleLocator->find($input);
+        $handle = $this->ruleLocator->find($expected);
 
-        return $handle($input);
+        return $handle($expected);
     }
 
-    public function isNotNull($input)
+    /**
+     * check $expected is null or not.
+     * 
+     * @param mixed $expected
+     * @return boolean
+     */
+    public function isNotNull($expected)
     {
-        return !$this->isNull($input);
+        return !$this->isNull($expected);
     }
 
-    public function isset($input)
+    /**
+     * check $expected is set or not.
+     * 
+     * @param mixed $expected
+     * @return boolean
+     */
+    public function isset($expected)
     {
-        $handle = $this->ruleLocator->find($input);
+        $handle = $this->ruleLocator->find($expected);
 
-        return $handle($input);
+        return $handle($expected);
     }
 
-    public function equal($excepted, $actual)
+    /**
+     * compare two values are equal.
+     *
+     * @param mixed $expected     First value to compare
+     * @param mixed $actual       Second value to compare
+     * @param bool  $ignoreCase   Case is ignored when set to true
+     *
+     * @return boolean
+     */
+    public function equal($expected, $actual, $ignoreCase = true)
     {
-        $handle = $this->ruleLocator->find($excepted);
+        $handle = $this->ruleLocator->find($expected);
 
-        return $handle($excepted, $actual);
+        return $handle($expected, $actual, $ignoreCase);
     }
 
-    public function eq($excepted, $actual)
+    /**
+     * compare two values are equal.
+     *
+     * @alias for equal
+     * @param mixed $expected     First value to compare
+     * @param mixed $actual       Second value to compare
+     * @param bool  $ignoreCase   Case is ignored when set to true
+     *
+     * @return boolean
+     */
+    public function eq($expected, $actual, $ignoreCase = true)
     {
-        return $this->equal($excepted, $actual);
+        return $this->equal($expected, $actual, $ignoreCase);
     }
 
-    public function notEqual($excepted, $actual)
+    /**
+     * compare two values are equal not ignore case sensitive.
+     *
+     * @param mixed $expected     First value to compare
+     * @param mixed $actual       Second value to compare
+     *
+     * @return boolean
+     */
+    public function equalStrict($expected, $actual)
     {
-        return !$this->equal($excepted, $actual);
+        if (\gettype($expected) !== \gettype($actual)) {
+            return false;
+        }
+
+        return $this->equal($expected, $actual, $ignoreCase = false);
     }
 
-    public function neq($excepted, $actual)
+    /**
+     * compare two values are not equal.
+     *
+     * @param mixed $expected     First value to compare
+     * @param mixed $actual       Second value to compare
+     * @param bool  $ignoreCase   Case is ignored when set to true
+     *
+     * @return boolean
+     */
+    public function notEqual($expected, $actual, $ignoreCase = true)
     {
-        return !$this->equal($excepted, $actual);
+        return !$this->equal($expected, $actual, $ignoreCase);
+    }
+    
+    /**
+     * compare two values are not equal.
+     *
+     * @alias for notEqual
+     * @param mixed $expected     First value to compare
+     * @param mixed $actual       Second value to compare
+     * @param bool  $ignoreCase   Case is ignored when set to true
+     *
+     * @return boolean
+     */
+    public function neq($expected, $actual, $ignoreCase = true)
+    {
+        return !$this->equal($expected, $actual, $ignoreCase);
     }
 
     public function gt()
