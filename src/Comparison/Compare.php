@@ -162,22 +162,22 @@ class Compare
         return !$this->equal($expected, $actual, $ignoreCase);
     }
 
-    public function gt()
+    public function gt($expected, $actual)
+    {
+        
+    }
+
+    public function lt($expected, $actual)
     {
 
     }
 
-    public function lt()
+    public function gte($expected, $actual)
     {
 
     }
 
-    public function gte()
-    {
-
-    }
-
-    public function lte()
+    public function lte($expected, $actual)
     {
 
     }
