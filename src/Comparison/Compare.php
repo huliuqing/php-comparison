@@ -12,7 +12,7 @@ class Compare
 
     public function getInstance()
     {
-        if(static::$instance === null) {
+        if (static::$instance === null) {
             static::$instance = new self;
         }
 
@@ -162,23 +162,55 @@ class Compare
         return !$this->equal($expected, $actual, $ignoreCase);
     }
 
+    /**
+     * Compare $expected value is great than $actual value.
+     *
+     * @param mixed|null $expected
+     * @param mixed|null $actual
+     * @return boolean
+     */
     public function gt($expected, $actual)
     {
-        
+        $handle = $this->ruleLocator->find($expected);
+
+        return $handle($expected, $actual);
     }
 
+    /**
+     * Compare $expected value is less than $actual value.
+     *
+     * @param mixed|null $expected
+     * @param mixed|null $actual
+     * @return boolean
+     */
     public function lt($expected, $actual)
     {
+        $handle = $this->ruleLocator->find($expected);
 
+        return $handle($expected, $actual);
     }
 
+    /**
+     * Compare $expected value is great than or equal $actual value.
+     *
+     * @param mixed|null $expected
+     * @param mixed|null $actual
+     * @return boolean
+     */
     public function gte($expected, $actual)
     {
-
+        return !$this->lt($expected, $actual);
     }
 
+    /**
+     * Compare $expected value is less than or equal $actual value.
+     *
+     * @param mixed|null $expected
+     * @param mixed|null $actual
+     * @return boolean
+     */
     public function lte($expected, $actual)
     {
-
+        return !$this->gt($expected, $actual);
     }
 }
