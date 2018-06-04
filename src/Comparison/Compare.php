@@ -211,6 +211,6 @@ class Compare
      */
     public function lte($expected, $actual)
     {
-        return !$this->gt($expected, $actual);
+        return $this->lt($expected, $actual) || $this->equal($expected, $actual);
     }
 }
