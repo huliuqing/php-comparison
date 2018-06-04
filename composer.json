@@ -9,9 +9,8 @@
             "email": "huliuqing1989@gmail.com"
         }
     ],
-    "minimum-stability": "dev",
     "require": {
-        "php": ">=5.4",
+        "php": "^5.4",
         "sebastian/comparator": "^3.0@dev",
         "florianwolters/component-core-comparable": "dev-master"
     },
