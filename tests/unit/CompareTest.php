@@ -199,4 +199,30 @@ class CompareTest extends TestCase
 
         $this->assertTrue($equal);
     }
+
+    public function lteSucceedsProvider()
+    {
+        $data = $this->gteSucceedsProvider();
+        
+        $new = [];
+        foreach($data as $key => $provider) {
+            $new[$key][0] = $provider[1];
+            $new[$key][1] = $provider[0];
+        }
+
+        return $new;
+    }
+
+    /**
+     * @dataProvider lteSucceedsProvider
+     *
+     * @param mixed $expected
+     * @param mixed $actual
+     */
+    public function testLteSucceeds($expected, $actual)
+    {
+        $equal = Compare::getInstance()->lte($expected, $actual);
+
+        $this->assertTrue($equal);
+    }
 }
