@@ -79,6 +79,99 @@ class CompareTest extends TestCase
         $this->assertTrue($equal);
     }
     
+    public function gteSucceedsProvider()
+    {        
+        $data = $this->gtSucceedsProvider();
+
+        return [
+            [true, false],
+
+            [3, 1],
+            ['3', 1],
+            [3, '1'],
+
+            [4, 1.0],
+            ['4', 1.0],
+            [4, '1.0'],
+
+            [5.0, 1],
+            ['5.0', 1],
+            [5.0, '1'],
+
+            ['b', 'a'],
+            ['aaz', 'aay'],
+            ['a', 0],
+
+            [[6], [1]],
+            [['6'], ['1']],
+            [[6], ['1']],
+            [[4, 5, 6], [1, 2, 3]],
+
+            [[7], [1.0]],
+            [['7'], ['1.0']],
+            [[7], ['1.0']],
+            [[4, 5, 6], [1.0, 2.0, 3.0]],
+
+            [[8.0], [1]],
+            [['8.0'], ['1']],
+            [[8.0], ['1']],
+            [[4.0, 5.0, 6.0], [1, 2, 3]],
+
+            [['a' => 9], ['a' => 1]],
+            [['a' => 9], ['a' => '1']],
+            [['a' => '9'], ['a' => 1]],
+
+            [['a' => 10], ['a' => 1.0]],
+            [['a' => 10], ['a' => '1.0']],
+            [['a' => '10'], ['a' => 1.0]],
+
+            [['a' => 10.0], ['a' => 1]],
+            [['a' => 10.0], ['a' => '1']],
+            [['a' => '10.0'], ['a' => 1]],
+
+            [['a' => 'b'], ['a' => 'a']],
+
+            // equals
+            [1, 1],
+            [1.0, 1],
+            [1, 1.0],
+            [1.0, 1.0],
+
+            [[2], [2]],
+            [[2.0], [2]],
+            [[2], [2.0]],
+            [[2.0], [2.0]],
+
+            ['1', 1],
+            ['1.0', 1],
+            [1, '1.0'],
+            ['1.0', '1.0'],
+
+            ['a', 'a'],
+            [['a'], ['a']],
+
+            [true, true],
+            [false, false],
+            [1, true],
+            [true, 1],
+            [false, 0],
+            [0, false],
+        ];
+    }
+
+    /**
+     * @dataProvider gteSucceedsProvider
+     *
+     * @param mixed $expected
+     * @param mixed $actual
+     */
+    public function testGteSucceeds($expected, $actual)
+    {
+        $equal = Compare::getInstance()->gte($expected, $actual);
+
+        $this->assertTrue($equal);
+    }    
+    
     public function ltSucceedsProvider()
     {
         $data = $this->gtSucceedsProvider();
