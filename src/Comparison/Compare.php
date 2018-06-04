@@ -199,7 +199,7 @@ class Compare
      */
     public function gte($expected, $actual)
     {
-        return !$this->lt($expected, $actual);
+        return $this->gt($expected, $actual) || $this->equal($expected, $actual);
     }
 
     /**
