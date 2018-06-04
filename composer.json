@@ -12,7 +12,8 @@
     "minimum-stability": "dev",
     "require": {
         "php": ">=5.3",
-        "sebastian/comparator": "^3.0@dev"
+        "sebastian/comparator": "^3.0@dev",
+        "florianwolters/component-core-comparable": "dev-master"
     },
     "require-dev": {
         "symfony/var-dumper": "3.4.x-dev",
