@@ -45,8 +45,8 @@ class EqualStrictTest extends TestCase
           [1.2e3, 1200],
           [(string) (1 / 3), 1 - 2 / 3],
           [1 / 3, (string) (1 - 2 / 3)],
-          ['string', 'STRING', true],
-          ['STRING', 'string', true],
+          ['string', 'STRING'],
+          ['STRING', 'string'],
           ['10', 10],
           ['', false],
           ['1', true],
@@ -63,9 +63,9 @@ class EqualStrictTest extends TestCase
      * @param mixed $expected
      * @param mixed $actual
      */
-    public function testEqualStrictSucceeds($expected, $actual, $ignoreCase = false)
+    public function testEqualStrictSucceeds($expected, $actual)
     {
-        $equal = Compare::getInstance()->equalStrict($expected, $actual, $ignoreCase);
+        $equal = Compare::getInstance()->equalStrict($expected, $actual);
 
         $this->assertTrue($equal);
     }
