@@ -14,7 +14,6 @@ class TypeGetter
 
     public function __construct()
     {
-
     }
     
     public function getType($input, $needFormat = true)

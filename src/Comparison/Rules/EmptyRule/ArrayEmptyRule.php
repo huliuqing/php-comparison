@@ -6,7 +6,7 @@ class ArrayEmptyRule extends EmptyRule
 {
     /**
      * check $expected is empty or not.
-     * 
+     *
      * @param mixed $expected
      * @return boolean
      */

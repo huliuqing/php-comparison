@@ -105,21 +105,21 @@ class IssetTest extends TestCase
     {
         $actual = Compare::getInstance()->isset(true);
 
-        $this->assertEquals(true, $actual);        
+        $this->assertEquals(true, $actual);
     }
 
     public function testBooleanFalse()
     {
         $actual = Compare::getInstance()->isset(false);
 
-        $this->assertEquals(true, $actual);        
+        $this->assertEquals(true, $actual);
     }
 
     public function testBooleanStringTrue()
     {
         $actual = Compare::getInstance()->isset('true');
 
-        $this->assertEquals(true, $actual);        
+        $this->assertEquals(true, $actual);
     }
 
     public function testBooleanStringFlase()

@@ -6,7 +6,7 @@ class StringEmptyRule extends EmptyRule
 {
     /**
      * check $expected is empty or not.
-     * 
+     *
      * @param mixed $expected
      * @return boolean
      */
@@ -23,7 +23,7 @@ class StringEmptyRule extends EmptyRule
 
     /**
      * check the given string of $expected is empty or not.
-     * 
+     *
      * @param mixed $expected
      * @return boolean
      */
@@ -33,7 +33,7 @@ class StringEmptyRule extends EmptyRule
         $expected = trim($expected);
 
         return $expected === '';
-    }   
+    }
 
     /**
      * check the given numeric of $expected is empty or not.

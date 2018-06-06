@@ -4,7 +4,7 @@ namespace PhpZendo\Comparison\Rules\EqualRule;
 
 use SebastianBergmann\Comparator\Factory;
 
-abstract class EqualRule 
+abstract class EqualRule
 {
     private $comparator;
 
@@ -25,11 +25,11 @@ abstract class EqualRule
     public function handle($expected, $actual, $ignoreCase = false)
     {
         try {
-            $this->comparator->getComparatorFor($expected, $actual)->assertEquals($expected, $actual, $delta = 0.0, $canonicalize = false, $ignoreCase);
+            $this->comparator->getComparatorFor($expected, $actual)
+                                ->assertEquals($expected, $actual, $delta = 0.0, $canonicalize = false, $ignoreCase);
 
             return true;
         } catch (\Exception $e) {
-            
             return false;
         }
     }

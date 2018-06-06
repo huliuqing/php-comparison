@@ -102,21 +102,21 @@ class IsnullTest extends TestCase
     {
         $actual = Compare::getInstance()->isNull(true);
 
-        $this->assertEquals(false, $actual);        
+        $this->assertEquals(false, $actual);
     }
 
     public function testBooleanFalse()
     {
         $actual = Compare::getInstance()->isNull(false);
 
-        $this->assertEquals(false, $actual);        
+        $this->assertEquals(false, $actual);
     }
 
     public function testBooleanStringTrue()
     {
         $actual = Compare::getInstance()->isNull('true');
 
-        $this->assertEquals(false, $actual);        
+        $this->assertEquals(false, $actual);
     }
 
     public function testBooleanStringFlase()

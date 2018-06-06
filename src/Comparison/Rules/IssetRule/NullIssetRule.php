@@ -6,7 +6,7 @@ class NullIssetRule extends IssetRule
 {
     /**
      * handle check $expected is set or not
-     * 
+     *
      * @param mixed $expected
      * @return boolean
      */
@@ -15,5 +15,5 @@ class NullIssetRule extends IssetRule
         // undefined, null, have default null value etc null value context,
         // when check isset will return false.
         return false;
-    }  
+    }
 }

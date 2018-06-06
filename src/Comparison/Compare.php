@@ -19,14 +19,14 @@ class Compare
         return static::$instance;
     }
 
-    public function __construct() 
+    public function __construct()
     {
         $this->ruleLocator = new Locator();
     }
 
     /**
      * check $expected is empty or not.
-     * 
+     *
      * @param mixed $expected
      * @return boolean
      */
@@ -39,7 +39,7 @@ class Compare
 
     /**
      * check $expected is not empty.
-     * 
+     *
      * @param mixed $expected
      * @return boolean
      */
@@ -50,7 +50,7 @@ class Compare
 
     /**
      * check $expected is null or not.
-     * 
+     *
      * @param mixed $expected
      * @return boolean
      */
@@ -63,7 +63,7 @@ class Compare
 
     /**
      * check $expected is null or not.
-     * 
+     *
      * @param mixed $expected
      * @return boolean
      */
@@ -74,7 +74,7 @@ class Compare
 
     /**
      * check $expected is set or not.
-     * 
+     *
      * @param mixed $expected
      * @return boolean
      */

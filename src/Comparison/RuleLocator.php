@@ -8,7 +8,9 @@ use \strtoupper;
 use \ucfirst;
 
 class RuleLocator
-{    
+{
+
+    
     private $typeGetter;
 
     private $typeSetter;
@@ -21,7 +23,7 @@ class RuleLocator
 
     // public function __construct(TypeGetter $typeGetter, TypeSetter $typeSetter)
     public function __construct()
-    {        
+    {
         // $this->typeGetter = $typeGetter ?: new TypeGetter();
         // $this->typeSetter = $typeSetter ?: new TypeSetter();
  

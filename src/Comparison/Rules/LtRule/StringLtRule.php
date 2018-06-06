@@ -16,8 +16,10 @@ class StringLtRule extends LtRule
      */
     public function handle($expected, $actual)
     {
-        if (!$this->comparable($actual)) {            
-            throw new \PhpZendo\Comparison\Exceptions\UncomparableException(sprintf("Can\'t compare %s type with expected %s type.", \gettype($actual), \gettype($expected)));            
+        if (!$this->comparable($actual)) {
+            throw new \PhpZendo\Comparison\Exceptions\UncomparableException(
+                sprintf("Can\'t compare %s type with expected %s type.", \gettype($actual), \gettype($expected))
+            );
         }
 
         $compared = strcmp($expected, $actual);

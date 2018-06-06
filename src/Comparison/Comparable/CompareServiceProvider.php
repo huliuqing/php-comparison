@@ -24,7 +24,7 @@ class CompareServiceProvider
 
     public static function getInstance()
     {
-        if(static::$instance === null) {
+        if (static::$instance === null) {
             static::$instance = new self;
         }
 

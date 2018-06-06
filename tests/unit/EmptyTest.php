@@ -102,21 +102,21 @@ class EmptyTest extends TestCase
     {
         $actual = Compare::getInstance()->empty(true);
 
-        $this->assertEquals(false, $actual);        
+        $this->assertEquals(false, $actual);
     }
 
     public function testBooleanFalse()
     {
         $actual = Compare::getInstance()->empty(false);
 
-        $this->assertEquals(true, $actual);        
+        $this->assertEquals(true, $actual);
     }
 
     public function testBooleanStringTrue()
     {
         $actual = Compare::getInstance()->empty('true');
 
-        $this->assertEquals(false, $actual);        
+        $this->assertEquals(false, $actual);
     }
 
     public function testBooleanStringFlase()

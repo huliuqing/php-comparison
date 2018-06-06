@@ -80,7 +80,7 @@ class CompareTest extends TestCase
     }
     
     public function gteSucceedsProvider()
-    {        
+    {
         $data = $this->gtSucceedsProvider();
 
         return [
@@ -170,14 +170,14 @@ class CompareTest extends TestCase
         $equal = Compare::getInstance()->gte($expected, $actual);
 
         $this->assertTrue($equal);
-    }    
+    }
     
     public function ltSucceedsProvider()
     {
         $data = $this->gtSucceedsProvider();
         
         $new = [];
-        foreach($data as $key => $provider) {
+        foreach ($data as $key => $provider) {
             $new[$key][0] = $provider[1];
             $new[$key][1] = $provider[0];
         }
@@ -205,7 +205,7 @@ class CompareTest extends TestCase
         $data = $this->gteSucceedsProvider();
         
         $new = [];
-        foreach($data as $key => $provider) {
+        foreach ($data as $key => $provider) {
             $new[$key][0] = $provider[1];
             $new[$key][1] = $provider[0];
         }

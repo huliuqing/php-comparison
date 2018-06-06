@@ -5,7 +5,7 @@ namespace PhpZendo\Comparison\Rules;
 use SebastianBergmann\Comparator\Factory;
 use PhpZendo\Comparison\Comparable\CompareServiceProvider;
 
-abstract class CompareRule 
+abstract class CompareRule
 {
     /**
      * CompareServiceProvider instance
@@ -72,7 +72,9 @@ abstract class CompareRule
     public function handle($expected, $actual)
     {
         if (!$this->comparable($actual)) {
-            throw new \PhpZendo\Comparison\Exceptions\UncomparableException(sprintf("Can\'t compare %s with %s.", \gettype($actual), \gettype($expected)));
+            throw new \PhpZendo\Comparison\Exceptions\UncomparableException(
+                sprintf("Can\'t compare %s with %s.", \gettype($actual), \gettype($expected))
+            );
         }
 
         if (!$this->hasOperator()) {
