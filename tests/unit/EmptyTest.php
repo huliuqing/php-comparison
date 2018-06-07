@@ -21,6 +21,13 @@ class EmptyTest extends TestCase
         $this->assertEquals(true, $actual);
     }
 
+    public function testIsEmptyFunction()
+    {
+        $actual = is_empty('');
+
+        $this->assertEquals(true, $actual);
+    }
+
     public function testString()
     {
         $actual = Compare::getInstance()->empty('php');
