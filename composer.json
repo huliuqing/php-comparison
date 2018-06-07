@@ -11,7 +11,7 @@
     ],
     "minimum-stability": "stable",
     "require": {
-        "php": ">=5.4",
+        "php": ">=7.1",
         "sebastian/comparator": "^3.0",
         "florianwolters/component-core-comparable": "0.2.*"
     },
@@ -22,7 +22,10 @@
     "autoload": {
         "psr-4": {
             "PhpZendo\\Comparison\\": "src/Comparison/"
-        }
+        },
+        "files": [
+            "src/Comparison/helpers.php"
+        ]
     },
     "autoload-dev": {
         "psr-4": {
