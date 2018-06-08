@@ -1,6 +1,6 @@
 <?php
 
-namespace PhpZendo\Comparison\Rules\IsNullRule;
+namespace PhpZendo\Comparison\Rules\IsnullRule;
 
 class ArrayIsNullRule extends IsNullRule
 {

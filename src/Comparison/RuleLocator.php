@@ -9,8 +9,6 @@ use \ucfirst;
 
 class RuleLocator
 {
-
-    
     private $typeGetter;
 
     private $typeSetter;
@@ -21,12 +19,8 @@ class RuleLocator
 
     private $ruleNamespaces = [];
 
-    // public function __construct(TypeGetter $typeGetter, TypeSetter $typeSetter)
     public function __construct()
     {
-        // $this->typeGetter = $typeGetter ?: new TypeGetter();
-        // $this->typeSetter = $typeSetter ?: new TypeSetter();
- 
         $this->typeGetter = new TypeGetter();
         $this->typeSetter = new TypeSetter();
     }
@@ -72,7 +66,7 @@ class RuleLocator
      */
     private function getClassname($inputType, $operation)
     {
-        // example: \PhpZendo\Comparison\Rule\Empty\StringEmptyRule
+        // example: \PhpZendo\Comparison\Rules\EmptyRule\StringEmptyRule
         $classname = $inputType . ucfirst($operation) . 'Rule';
         return $this->getRuleNamespace($operation, $inputType) . '\\' . $classname;
     }
@@ -85,7 +79,7 @@ class RuleLocator
             return $this->ruleNamespaces[$rule];
         }
 
-        // example: PhpZendo\Comparison\Rule\EmptyRule
+        // example: PhpZendo\Comparison\Rules\EmptyRule
         return $this->ruleNamespaces[$rule] = $this->namespace . '\\Rules\\' . ucfirst(strtolower($operation)) . 'Rule';
     }
 
