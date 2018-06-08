@@ -10,7 +10,7 @@ class Compare
 
     private static $instance;
 
-    public function getInstance()
+    public static function getInstance()
     {
         if (static::$instance === null) {
             static::$instance = new self;
