@@ -1,11 +1,8 @@
 <?php
 /*
- * This file is part of Respect/Validation.
+ * This file is part of phpzendo/php-comparison.
  *
- * (c) Alexandre Gomes Gaigalas <alexandre@gaigalas.net>
- *
- * For the full copyright and license information, please view the "LICENSE.md"
- * file that was distributed with this source code.
+ * (c) Liuqing Hu <huliuqing1989@gmail.com>
  */
 namespace PhpZendo\Tests\Unit;
 
@@ -17,13 +14,6 @@ class EmptyTest extends TestCase
     public function testEmptyString()
     {
         $actual = Compare::getInstance()->empty('');
-
-        $this->assertEquals(true, $actual);
-    }
-
-    public function testIsEmptyFunction()
-    {
-        $actual = is_empty('');
 
         $this->assertEquals(true, $actual);
     }
