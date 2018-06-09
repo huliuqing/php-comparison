@@ -1,3 +1,7 @@
+<p align="center">
+<a href="https://travis-ci.org/huliuqing/php-comparison/"><img src="https://travis-ci.org/huliuqing/php-comparison.svg?branch=master" alt="Build Status"></a>
+</p>
+
 ## About PHP-COMPARISON
 
 The most awesome comparison engine created for php.
@@ -12,7 +16,7 @@ The most awesome comparison engine created for php.
 
 ## Requires
 
-- PHP version 5.4+.
+- PHP version 7.1+.
 - sebastian/comparator component.
 - florianwolters/component-core-comparable component.
 
@@ -86,3 +90,6 @@ $comparator->lte($expected = 2, $actual = 2);// Check $expected less than or equ
 
 Established!
 
+### 2018-06-09 22:36
+
+Add compare helper functions.
